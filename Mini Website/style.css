@@ -1,0 +1,86 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: white;
+    overflow-x: hidden;
+
+    /* Animated galaxy gradient */
+    background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #000000);
+    background-size: 400% 400%;
+    animation: gradientMove 15s ease infinite;
+}
+
+/* Gradient animation */
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Star particles */
+body::before {
+    content: "";
+    position: fixed;
+    width: 200%;
+    height: 200%;
+    background: transparent;
+    background-image:
+        radial-gradient(white 1px, transparent 1px),
+        radial-gradient(white 1px, transparent 1px);
+    background-size: 50px 50px;
+    background-position: 0 0, 25px 25px;
+    animation: starsMove 60s linear infinite;
+    opacity: 0.3;
+
+    pointer-events: none;   /* THIS FIXES THE CLICKING PROBLEM */
+    z-index: 0;
+}
+
+/* Stars moving animation */
+@keyframes starsMove {
+    from { transform: translateY(0); }
+    to { transform: translateY(-500px); }
+}
+
+/* Header */
+header {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+}
+
+/* Navigation */
+nav a {
+    color: #00f7ff;
+    text-decoration: none;
+    margin: 15px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #ff00ff;
+    text-shadow: 0 0 8px #fff;
+}
+
+/* Sections */
+section {
+    background: rgba(0, 0, 0, 0.6);
+    margin: 30px auto;
+    padding: 20px;
+    width: 80%;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(255,255,255,0.2);
+    backdrop-filter: blur(5px);
+    transition: 0.3s;
+}
+
+section:hover {
+    transform: scale(1.03);
+}
+
+/* Images */
+img {
+    border-radius: 15px;
+    box-shadow: 0 0 15px #fff;
+}
